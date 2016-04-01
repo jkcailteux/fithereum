@@ -2,11 +2,6 @@
 <manifest package="com.adventuroo.fithereum"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<!-- To auto-complete the email text field in the login form with the user's emails -->
-	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
-	<uses-permission android:name="android.permission.READ_PROFILE" />
-	<uses-permission android:name="android.permission.READ_CONTACTS" />
-
 	<application
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
@@ -15,14 +10,16 @@
 		android:theme="@style/AppTheme">
 
 
-		<activity android:name=".SplashActivity">
+		<activity android:name=".views.SplashActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".LoginActivity">
+		<activity
+			android:name=".views.LoginActivity"
+			android:launchMode="singleTask">
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />
 
@@ -31,12 +28,10 @@
 
 				<data
 					android:host="app"
-					android:pathPattern="authorize/.*"
+					android:pathPattern="/auth_callback/login/.*"
 					android:scheme="fithereum" />
 			</intent-filter>
 		</activity>
 
 	</application>
-
-
 </manifest>
