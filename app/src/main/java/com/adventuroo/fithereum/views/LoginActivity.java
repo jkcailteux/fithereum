@@ -8,7 +8,7 @@ import android.view.View;
 
 import java.util.Map;
 
-import com.adventuroo.fithereum.FitbitHelper;
+import com.adventuroo.fithereum.util.FitbitHelper;
 import com.adventuroo.fithereum.R;
 import com.adventuroo.fithereum.util.UriHelper;
 

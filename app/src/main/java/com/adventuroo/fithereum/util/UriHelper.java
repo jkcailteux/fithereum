@@ -17,7 +17,7 @@ public class UriHelper {
 		builder.appendQueryParameter("scope", "activity");
 		builder.appendQueryParameter("redirect_uri", "fithereum://app/auth_callback/login/fitbit");
 		builder.appendQueryParameter("expires_in", "2592000");
-		builder.appendQueryParameter("prompt", "login");
+		//builder.appendQueryParameter("prompt", "login");
 		return builder.build();
 	}
 
