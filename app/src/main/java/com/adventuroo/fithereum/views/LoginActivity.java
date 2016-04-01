@@ -1,13 +1,11 @@
 package com.adventuroo.fithereum.views;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import java.net.URL;
 import java.util.Map;
 
 import com.adventuroo.fithereum.FitbitHelper;
@@ -41,15 +39,11 @@ public class LoginActivity extends AppCompatActivity {
 	@Override
 	public void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
-		Uri uri = intent.getData();
-		Map<String, String> params;
-		try {
-			params = UriHelper.splitQuery(new URL(uri.toString()));
-		} catch (Exception e) {
-		}
-
+		Map<String, String> params = UriHelper.getParams(intent.getData());
+		FitbitHelper.setUserId(params.get("user_id"));
+		FitbitHelper.setAccessToken(params.get("access_token"));
 		if (FitbitHelper.haveValidFitbitCredentials()) {
-
+			startActivity(new Intent(this, MainActivity.class));
 		}
 
 	}

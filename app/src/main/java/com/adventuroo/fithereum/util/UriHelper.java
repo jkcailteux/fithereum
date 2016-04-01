@@ -2,10 +2,7 @@ package com.adventuroo.fithereum.util;
 
 import android.net.Uri;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,18 +17,20 @@ public class UriHelper {
 		builder.appendQueryParameter("scope", "activity");
 		builder.appendQueryParameter("redirect_uri", "fithereum://app/auth_callback/login/fitbit");
 		builder.appendQueryParameter("expires_in", "2592000");
-		builder.appendQueryParameter("prompt","login");
+		builder.appendQueryParameter("prompt", "login");
 		return builder.build();
 	}
 
-	public static Map<String, String> splitQuery(URL url) throws UnsupportedEncodingException {
-		Map<String, String> query_pairs = new LinkedHashMap<String, String>();
-		String query = url.getQuery();
-		String[] pairs = query.split("&");
-		for (String pair : pairs) {
-			int idx = pair.indexOf("=");
-			query_pairs.put(URLDecoder.decode(pair.substring(0, idx), "UTF-8"), URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
+	public static Map<String, String> getParams(Uri uri) {
+		Map<String, String> map = new HashMap<>();
+		String all = uri.toString();
+		all = all.split("#")[1];
+
+		String[] params = all.split("&");
+		for(String s:params){
+			map.put(s.split("=")[0],s.split("=")[1]);
 		}
-		return query_pairs;
+		return map;
 	}
+
 }

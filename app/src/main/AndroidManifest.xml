@@ -32,6 +32,7 @@
 					android:scheme="fithereum" />
 			</intent-filter>
 		</activity>
+		<activity android:name=".views.MainActivity"/>
 
 	</application>
 </manifest>
