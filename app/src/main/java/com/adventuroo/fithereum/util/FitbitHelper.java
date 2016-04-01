@@ -5,8 +5,6 @@ package com.adventuroo.fithereum.util;
  */
 public class FitbitHelper {
 
-	public static final String clientId = "227PXG";
-	public static final String clientSecret = "35b025b3dd3e979daa5dc3e1e2e6b26b";
 
 	private static String accessToken = null;
 	private static String userId = null;
