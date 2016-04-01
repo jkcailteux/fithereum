@@ -4,11 +4,12 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<TextView
+	<Button
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_centerInParent="true"
-		android:text="Fithereum"
-		android:textSize="50sp" />
+		android:text="Log in with Fitbit"
+		android:onClick="loginWithFitbit"
+		android:textSize="25sp" />
 
 </RelativeLayout>
